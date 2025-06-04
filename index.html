@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridge Hash Capital Inc. - Advanced Crypto Mining</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2a3c61',
+                        secondary: '#3e5883',
+                        accent: '#4f7ec9',
+                        success: '#34d399',
+                        mining: '#0ea5e9'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        .card-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        
+        .mining-badge {
+            background: linear-gradient(90deg, #0ea5e9, #4f7ec9);
+        }
+        
+        .coin-glow {
+            box-shadow: 0 0 15px rgba(79, 126, 201, 0.5);
+        }
+        
+        .progress-gradient {
+            background: linear-gradient(90deg, #4f7ec9, #0ea5e9);
+        }
+        
+        .transaction-entry {
+            border-left: 3px solid #4f7ec9;
+            transition: all 0.3s ease;
+        }
+        
+        .transaction-entry:hover {
+            background: rgba(79, 126, 201, 0.1);
+        }
+        
+        .currency-change {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+        
+        .hash-animation {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hash-animation:after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 40%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.13);
+            transform: rotate(25deg);
+            animation: shine 5s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -60%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-primary to-secondary border-b border-gray-700 shadow-lg">
+        <div class="container mx-auto px-4 py-5">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                        <i class="fas fa-link text-white"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+                        Bridge Hash Capital Inc.
+                    </h1>
+                </div>
+                
+                <div class="flex items-center space-x-6">
+                    <div class="hidden md:flex flex-col">
+                        <span class="text-xs text-cyan-300">Current Hashrate</span>
+                        <div class="flex items-end">
+                            <span class="text-xl font-mono">2.47</span>
+                            <span class="text-sm opacity-75">TH/s</span>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex flex-col">
+                        <span class="text-xs text-cyan-300">Network Difficulty</span>
+                        <div class="flex items-end">
+                            <span class="text-xl font-mono">36.76</span>
+                            <span class="text-sm opacity-75">T</span>
+                        </div>
+                    </div>
+                    <button class="px-4 py-2 rounded-lg bg-accent hover:bg-blue-600 transition text-white flex items-center">
+                        <i class="fas fa-user-circle mr-2"></i>
+                        Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Panel -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Wallet Card -->
+                <div class="card-gradient rounded-2xl p-6 shadow-xl">
+                    <h2 class="text-xl font-bold text-white mb-2">Rewards Wallet</h2>
+                    <div class="flex flex-wrap items-center justify-between gap-4">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-lg bg-accent flex items-center justify-center mr-4">
+                                <i class="fab fa-bitcoin text-xl text-yellow-300"></i>
+                            </div>
+                            <div class="hash-animation py-1 px-4 bg-gray-800 rounded-lg">
+                                <span class="font-mono text-sm">3Jt9S...k4szc</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mining-badge px-3 py-1 rounded-full flex items-center">
+                            <i class="fas fa-sync-alt animate-spin mr-1"></i>
+                            <span class="text-xs">Synced to Blockchain</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <div class="bg-gray-900 rounded-xl p-5">
+                            <h3 class="font-medium text-cyan-300 mb-3">Mining Rig Performance</h3>
+                            <div class="flex flex-wrap gap-6">
+                                <div>
+                                    <div class="flex items-end mb-1">
+                                        <span class="text-2xl font-bold text-white">Rig UID:</span>
+                                        <span class="ml-2 font-mono text-accent">VX7-KL2-5T9v6s</span>
+                                    </div>
+                                    <div class="text-sm opacity-75">Antminer S19 XP Hyd</div>
+                                </div>
+                                
+                                <div>
+                                    <div class="text-sm opacity-75 mb-1">Temperature</div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-fire text-red-400 mr-1"></i>
+                                        <span>62°C</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="text-sm opacity-75 mb-1">Uptime</div>
+                                    <div class="flex items-center">
+                                        <i class="far fa-clock text-green-400 mr-1"></i>
+                                        <span>97.2%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Balances -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="card-gradient rounded-2xl p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-cyan-300 font-medium mb-1">Assets Balance</h3>
+                                <div class="flex items-baseline">
+                                    <span class="text-3xl font-bold">3,000</span>
+                                    <span class="ml-2 text-accent text-lg">USDC</span>
+                                </div>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <div class="text-xs opacity-75 mb-1">Equivalent BTC Value</div>
+                            <div class="currency-change flex items-center">
+                                <i class="fab fa-bitcoin text-yellow-300 mr-1"></i>
+                                <span class="font-bold">0.0754</span>
+                                <span class="ml-2 text-xs bg-green-900 text-green-300 px-2 py-1 rounded">+2.3%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-gradient rounded-2xl p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-cyan-300 font-medium mb-1">Daily Rewards</h3>
+                                <div class="flex items-baseline">
+                                    <span class="text-3xl font-bold">$25.32</span>
+                                </div>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <div class="text-xs opacity-75 mb-1">Calculated from 30% of 10,000 investment</div>
+                            <div class="w-full bg-gray-700 h-2 rounded-full mt-2 overflow-hidden">
+                                <div class="progress-gradient h-full rounded-full" style="width: 30%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Transaction -->
+                <div class="card-gradient rounded-2xl p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-bold text-white">Recent Transactions</h3>
+                        <a href="#" class="text-cyan-300 hover:text-cyan-200 text-sm">View All</a>
+                    </div>
+                    
+                    <div class="bg-gray-900 rounded-xl overflow-hidden">
+                        <div class="transaction-entry px-4 py-3">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between">
+                                <div>
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-blue-900 flex items-center justify-center mr-3">
+                                            <i class="fab fa-bitcoin text-yellow-300 text-xs"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium">Mining Reward</div>
+                                            <div class="text-xs text-cyan-300 flex items-center">
+                                                <span>Today</span>
+                                                <span class="mx-2">•</span>
+                                                <span>Confirmed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-2 sm:mt-0 text-right">
+                                    <div class="text-green-400 font-bold">+0.00062 BTC</div>
+                                    <div class="text-xs font-mono truncate mt-1">10084cc...db94d</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-gray-800 px-4 py-3">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between">
+                                <div>
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center mr-3">
+                                            <i class="fas fa-exchange-alt text-xs"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium">Rig Allocation</div>
+                                            <div class="text-xs text-gray-400 flex items-center">
+                                                <span>Yesterday</span>
+                                                <span class="mx-2">•</span>
+                                                <span>Completed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-2 sm:mt-0 text-right">
+                                    <div class="font-bold text-white">Rig #VX7-KL2-5T9v6s</div>
+                                    <div class="text-xs text-cyan-300 mt-1">Hashrate Boost Activated</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-800 px-4 py-3">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between">
+                                <div>
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-blue-900 flex items-center justify-center mr-3">
+                                            <i class="fab fa-bitcoin text-yellow-300 text-xs"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium">BTC Transfer</div>
+                                            <div class="text-xs text-gray-400 flex items-center">
+                                                <span>3h ago</span>
+                                                <span class="mx-2">•</span>
+                                                <span>Complete</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-2 sm:mt-0 text-right">
+                                    <div class="text-red-400 font-bold">-0.00010257 BTC</div>
+                                    <div class="flex items-center justify-end">
+                                        <span class="text-xs text-gray-400 mr-2">3JfjHq...8tgszc</span>
+                                    </div>
+                                    <div class="text-xs text-gray-400 mt-1">Network fee: $0.27</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Panel - Statistics -->
+            <div class="space-y-6">
+                <div class="card-gradient rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-white mb-4">Revenue Overview</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Total Investment</span>
+                                <span>$10,000</span>
+                            </div>
+                            <div class="w-full bg-gray-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-cyan-500 h-full rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Mining Allocation</span>
+                                <span>$3,000 (30%)</span>
+                            </div>
+                            <div class="w-full bg-gray-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-accent h-full rounded-full" style="width: 30%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Monthly Revenue</span>
+                                <span>$759.60</span>
+                            </div>
+                            <div class="w-full bg-gray-700 h-2 rounded-full overflow-hidden">
+                                <div class="bg-green-500 h-full rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 pt-4 border-t border-gray-700">
+                        <h4 class="text-cyan-300 font-medium mb-2">Next Payout</h4>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <i class="far fa-calendar text-yellow-300 mr-2"></i>
+                                <span>July 5, 2023</span>
+                            </div>
+                            <div class="bg-blue-900 text-cyan-300 px-3 py-1 rounded-full text-sm">
+                                ~0.018 BTC
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-gradient rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-white mb-4">Hashrate Monitoring</h3>
+                    <div class="flex items-center justify-center mb-6">
+                        <div class="relative">
+                            <svg width="140" height="140" viewBox="0 0 36 36" class="circular-chart">
+                                <path class="circle-bg"
+                                    d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    fill="none"
+                                    stroke="#334155"
+                                    stroke-width="3"
+                                />
+                                <path class="circle"
+                                    d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    fill="none"
+                                    stroke="#0ea5e9"
+                                    stroke-width="3"
+                                    stroke-dasharray="85, 100"
+                                    stroke-linecap="round"
+                                />
+                                <text x="18" y="20" text-anchor="middle" fill="#f8fafc" font-size="8">85%</text>
+                                <text x="18" y="25" text-anchor="middle" fill="#94a3b8" font-size="5">Efficiency</text>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-900 rounded-xl p-4">
+                        <div class="flex justify-between mb-2">
+                            <div class="text-sm">Power Consumption</div>
+                            <div class="text-cyan-300 text-sm">3,100W</div>
+                        </div>
+                        <div class="flex justify-between">
+                            <div class="text-sm">Avg. Profitability</div>
+                            <div class="text-green-400 text-sm">$2.81 / TH</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 mt-16 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-6 md:mb-0">
+                    <div class="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
+                        <i class="fas fa-link text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-white">Bridge Hash Capital Inc.</div>
+                        <div class="text-sm opacity-75">Enterprise Blockchain Solutions</div>
+                    </div>
+                </div>
+                
+                <div class="text-center text-sm opacity-75">
+                    © 2023 Bridge Hash Capital Inc. All rights reserved.
+                </div>
+                
+                <div class="flex space-x-4 mt-6 md:mt-0">
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-accent">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-accent">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-accent">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Live Data Display Script -->
+    <script>
+        // Function to simulate live price updates
+        function updateCryptoPrices() {
+            const btcElements = document.querySelectorAll('.currency-change');
+            const btcValue = 0.0754;
+            const variation = (Math.random() * 0.004 - 0.002).toFixed(4);
+            const newValue = (parseFloat(btcValue) + parseFloat(variation)).toFixed(4);
+            
+            btcElements.forEach(element => {
+                const changePct = ((newValue - btcValue) / btcValue * 100).toFixed(2);
+                element.innerHTML = `
+                    <i class="fab fa-bitcoin text-yellow-300 mr-1"></i>
+                    <span class="font-bold">${newValue}</span>
+                    <span class="ml-2 text-xs px-2 py-1 rounded ${
+                        changePct >= 0 ? 'bg-green-900 text-green-300' : 'bg-red-900 text-red-300'
+                    }">${changePct >= 0 ? '+' : ''}${changePct}%</span>
+                `;
+            });
+            
+            // Update next payout value based on BTC change
+            document.querySelector('.bg-blue-900 > span').textContent = `~${(0.018 * (1 + parseFloat(variation))).toFixed(4)} BTC`;
+            
+            // Simulate hashrate variation
+            const hashrateValue = (2.47 + (Math.random() * 0.1 - 0.05)).toFixed(2);
+            document.querySelector('.text-xl.font-mono').textContent = hashrateValue;
+        }
+        
+        // Simulate live data updates every 5 seconds
+        setInterval(updateCryptoPrices, 5000);
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=steveadams2834/chris-woodward" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
